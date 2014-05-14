@@ -73,7 +73,6 @@ public class LinkedAndArrayListPerformanceAnalysis extends Specification {
 		int ROUNDS = 10
 		int MEASUREMENTS = 100
 		int ITENS_PER_MEASUREMENT = 10000
-		Random random = new Random()
 		
 		and: "arrays to store the measurements"
 		int[] linkedListMeasurements = new int[MEASUREMENTS + 1]
@@ -83,9 +82,9 @@ public class LinkedAndArrayListPerformanceAnalysis extends Specification {
 		ROUNDS.times {
 			linkedList = new LinkedList<Integer>()
 			
-			MEASUREMENTS.times { i ->
+			(MEASUREMENTS + 1).times { i ->
 				ITENS_PER_MEASUREMENT.times {
-					linkedList.add(random.nextInt() * i)
+					linkedList.add(i)
 				}
 				
 				long start = System.currentTimeMillis()
@@ -98,9 +97,9 @@ public class LinkedAndArrayListPerformanceAnalysis extends Specification {
 		ROUNDS.times {
 			arrayList = new ArrayList<Integer>()
 			
-			MEASUREMENTS.times { i ->
+			(MEASUREMENTS + 1).times { i ->
 				ITENS_PER_MEASUREMENT.times {
-					arrayList.add(random.nextInt() * i)
+					arrayList.add(i)
 				}
 				
 				long start = System.currentTimeMillis()
